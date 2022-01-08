@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartServ - Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+	<script src="js/ss.js"></script>
+	<style>
+		body {
+			background-color: #E7E7E7;
+		}
+		.card-body {
+			border-left: solid 5px #41BF99;
+			box-shadow: grey 2px 2px 5px;
+		}
+		.chart-body{
+			background-color: white;
+		}
+	</style>
+</head>
+
+
+
+<body>
+    <div class="wrapper">
+        <div id="content">
+            <div class="container-fuild">  
+                <br><h5 class="ml-5" style="font-weight: bold;">Company Metrics</h5>
+                <div class="container-fuild">
+                    <div class="row m-4">
+                        <div class="col-sm-3">
+                            <div class="card bordercorner ">
+                                <div class="card-body" style="border-left: solid 5px #41BF99"> 
+                                    <h4 style="color: #71BE58;">$406,411.29</h4>
+                                    <label>Total Revenue</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 ">
+                            <div class="card bordercorner">
+                                <div class="card-body">
+                                    <h4>$620</h4>
+                                    <label>Total Jobs Average</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="card bordercorner">
+                                <div class="card-body">
+                                    <h4>655</h4>
+                                    <label>Tickets Cleared</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 ">
+                            <div class="card bordercorner">
+                                <div class="card-body">
+                                    <h4>735</h4>
+                                    <label>Tickets Scheduled</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+				<div class="container-fuild">
+					<div class="row m-4">
+						<div class="col-sm-3 ">
+							<div class="card bordercorner">
+								<div class="card-body">
+									<h4 style="color: red;">$110,448.8</h4>
+									<label>Outstanding Amount</label>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-3 ">
+							<div class="card bordercorner">
+								<div class="card-body">
+									<h4>105</h4>
+									<label>Membership Sold</label>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-3 ">
+							<div class="card bordercorner">
+								<div class="card-body">
+									<h4>436</h4>
+									<label>Jobs Completed</label>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="card bordercorner">
+								<div class="card-body "> 
+									<h4>65</h4>
+									<label>Tickets Cancelled</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container-fuild">
+				<div class="row m-4">
+					<div class="col-sm-6">
+						<br><h5 class="ml-0" style="font-weight: bold;">Revenue By Job Location</h5>
+						<div class="row m-1">
+							<div class="chart bordercorner">
+								<div class="chart-body"> 
+									<canvas id="rev-by-jl" width="600" height="450"></canvas>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<br><h5 class="ml-0" style="font-weight: bold;">Revenue By Job Type</h5>
+						<div class="row m-4">
+							<div class="chart bordercorner">
+								<div class="chart-body"> 
+									<canvas id="rev-by-jt" width="600" height="450"></canvas>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <script>
+	  new Chart(document.getElementById("rev-by-jl"), {
+		type: 'horizontalBar',
+		data: {
+		  labels: ["Everett", "Seattle", "Lynwood", "Bothell", "Mukilteo", "Edmonds"],
+		  datasets: [
+			{
+			  label: "Revenue By Job Location",
+			  backgroundColor: '#41BF99',
+			  data: [80000,75000,50000,49000,45000,42000,34000]
+			}
+		  ]
+		},
+		options: {
+		  legend: { display: false },
+		  title: {
+			display: true,
+			text: 'Revenue for November 2019'
+		  }
+		}
+	});
+	new Chart(document.getElementById("rev-by-jt"), {
+		type: 'horizontalBar',
+		data: {
+		  labels: ["Job1", "Job2", "Job3", "Job4", "Job5", "Job6"],
+		  datasets: [
+			{
+			  label: "Revenue By Job Location",
+			  backgroundColor: '#41BF99',
+			  data: [180000,75000,50000,245000,42000,140000]
+			}
+		  ]
+		},
+		options: {
+		  legend: { display: false },
+		  title: {
+			display: true,
+			text: 'Revenue for November 2019'
+		  }
+		}
+	});
+    </script>
+</body>
+</html>
